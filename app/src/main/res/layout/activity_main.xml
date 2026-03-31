@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pake ScrollView biar kalau layarnya kecil (atau pas keyboard muncul), halamannya bisa discroll -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F0FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Bagian Judul Atas -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI Calculator"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2D1B69"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track your body mass index easily"
+            android:textSize="14sp"
+            android:textColor="#9B8EC4"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Kartu Utama buat Input Data -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Tombol pilihan satuan (Metric vs Imperial) -->
+                <RadioGroup
+                    android:id="@+id/radioGroupUnit"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_toggle"
+                    android:padding="4dp"
+                    android:layout_marginBottom="24dp">
+
+                    <RadioButton
+                        android:id="@+id/radioMetric"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Metric"
+                        android:textSize="13sp"
+                        android:textColor="#FFFFFF"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:checked="true"
+                        android:background="@drawable/bg_toggle_selected"/>
+
+                    <RadioButton
+                        android:id="@+id/radioImperial"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Imperial"
+                        android:textSize="13sp"
+                        android:textColor="#9B8EC4"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:background="@android:color/transparent"/>
+                </RadioGroup>
+
+                <!-- Bagian Input TINGGI BADAN -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HEIGHT"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#9B8EC4"
+                    android:layout_marginBottom="8dp"
+                    android:letterSpacing="0.1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <EditText
+                        android:id="@+id/etHeight"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="170"
+                        android:inputType="numberDecimal"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D1B69"
+                        android:background="@drawable/bg_input"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="start|center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/tvHeightUnit"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:text="cm"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF6B9D"
+                        android:gravity="center"
+                        android:background="@drawable/bg_unit_badge"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="120"
+                    android:progress="70"
+                    android:progressTint="#FF6B9D"
+                    android:thumbTint="#FF6B9D"
+                    android:layout_marginBottom="4dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"/>
+
+                <!-- Angka minimal & maksimal di bawah slider tinggi -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+                    <TextView
+                        android:id="@+id/tvHeightMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100 cm"
+                        android:textSize="11sp"
+                        android:textColor="#9B8EC4"
+                        android:layout_alignParentStart="true"/>
+                    <TextView
+                        android:id="@+id/tvHeightMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="220 cm"
+                        android:textSize="11sp"
+                        android:textColor="#9B8EC4"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+
+                <!-- Bagian Input BERAT BADAN -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WEIGHT"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#9B8EC4"
+                    android:layout_marginBottom="8dp"
+                    android:letterSpacing="0.1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <EditText
+                        android:id="@+id/etWeight"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="65"
+                        android:inputType="numberDecimal"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D1B69"
+                        android:background="@drawable/bg_input"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="start|center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/tvWeightUnit"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:text="kg"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#FF9A5C"
+                        android:gravity="center"
+                        android:background="@drawable/bg_unit_badge_orange"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="120"
+                    android:progress="35"
+                    android:progressTint="#FF9A5C"
+                    android:thumbTint="#FF9A5C"
+                    android:layout_marginBottom="4dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"/>
+
+                <!-- Angka minimal & maksimal di bawah slider berat -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+                    <TextView
+                        android:id="@+id/tvWeightMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30 kg"
+                        android:textSize="11sp"
+                        android:textColor="#9B8EC4"
+                        android:layout_alignParentStart="true"/>
+                    <TextView
+                        android:id="@+id/tvWeightMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150 kg"
+                        android:textSize="11sp"
+                        android:textColor="#9B8EC4"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+
+                <!-- Bagian Input UMUR -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AGE"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#9B8EC4"
+                    android:layout_marginBottom="8dp"
+                    android:letterSpacing="0.1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <EditText
+                        android:id="@+id/etAge"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:text="25"
+                        android:inputType="number"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#2D1B69"
+                        android:background="@drawable/bg_input"
+                        android:paddingHorizontal="16dp"
+                        android:gravity="start|center_vertical"/>
+
+                    <TextView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:text="yrs"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#A78BFA"
+                        android:gravity="center"
+                        android:background="@drawable/bg_unit_badge_purple"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="70"
+                    android:progress="15"
+                    android:progressTint="#A78BFA"
+                    android:thumbTint="#A78BFA"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tombol buat jalanin itungannya -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Calculate BMI"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_gradient"
+            android:elevation="4dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Kartu Hasil (Default-nya sembunyi/GONE, muncul kalau sudah dihitung) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:visibility="gone"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YOUR RESULT"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#9B8EC4"
+                    android:layout_marginBottom="16dp"
+                    android:letterSpacing="0.1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <!-- Skor angka BMI -->
+                    <TextView
+                        android:id="@+id/tvBmiScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="22.5"
+                        android:textSize="56sp"
+                        android:textStyle="bold"
+                        android:textColor="#27AE60"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <!-- Label status BMI (Normal, Overweight, dll) -->
+                        <TextView
+                            android:id="@+id/tvBmiLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normal Weight"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#2D1B69"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BMI Score"
+                            android:textSize="13sp"
+                            android:textColor="#9B8EC4"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Garis warna dekorasi hasil -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/bg_bmi_bar"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Teks saran/tips buat user -->
+                <TextView
+                    android:id="@+id/tvTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textColor="#6D5A9C"
+                    android:background="@drawable/bg_tip"
+                    android:padding="16dp"
+                    android:lineSpacingMultiplier="1.2"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
