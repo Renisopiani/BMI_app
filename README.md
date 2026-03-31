@@ -12,9 +12,9 @@ Aplikasi penghitung Body Mass Index (BMI) sederhana dengan tampilan modern dan i
 ## Tampilan Aplikasi
 Berikut adalah screenshot dari aplikasi BMI Calculator:
 
-| Input Page | Result Page |
-|:---:|:---:|
-| <img src="gambar/gambar_1.jpeg" width="300"> | <img src="gambar/gambar_2.jpeg" width="300"> |
+|                  Input Page                  |                 Result Page                  |
+|:--------------------------------------------:|:--------------------------------------------:|
+| <img src="gambar/gambar_2.jpeg" width="300"> | <img src="gambar/gambar_1.jpeg" width="300"> |
 
 ## Cara Penggunaan
 1. Pilih satuan yang ingin digunakan (Metric atau Imperial).
