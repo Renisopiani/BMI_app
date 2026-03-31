@@ -14,7 +14,7 @@ Berikut adalah screenshot dari aplikasi BMI Calculator:
 
 | Input Page | Result Page |
 |:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/65b63000-8488-444f-8367-17e08929e55b" width="300"> | <img src="https://github.com/user-attachments/assets/18f1523c-750d-4076-a212-32a2228c4641" width="300"> |
+| <img src="gambar/gambar_1.jpeg" width="300"> | <img src="gambar/gambar_2.jpeg" width="300"> |
 
 ## Cara Penggunaan
 1. Pilih satuan yang ingin digunakan (Metric atau Imperial).
